@@ -15,7 +15,6 @@ const router = new VueRouter({
   routes ,
   hashbang :false,
   mode : 'history'
-
 });
 
 
