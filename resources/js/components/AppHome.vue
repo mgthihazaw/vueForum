@@ -1,18 +1,21 @@
 <template>
 	<div>
        <toolbar></toolbar>
-       <h1>gfsdhsakfhdsakjhfkjsahb</h1>
+       
+       <router-view></router-view>
        <app-footer></app-footer>
     </div>
 </template>
 
 <script>
-	import toolbar from './Toolbar.vue';
+	import Toolbar from './Toolbar.vue';
 	import AppFooter from './AppFooter.vue';
+	import Login from './login/Login.vue';
   export default {
   	components:{
-  		toolbar,
+  		Toolbar,
   		AppFooter,
+  		Login,
   	}
   }
 </script>

@@ -5,19 +5,29 @@
     <v-toolbar-title class="white--text">Microstack</v-toolbar-title>
 
     <v-spacer></v-spacer>
-
-    <v-btn flat>
+    <router-link to="">
+    	<v-btn flat>
       forum
     </v-btn>
-    <v-btn flat>
+    </router-link>
+    <router-link to="">
+    	<v-btn flat>
       Ask Question
     </v-btn>
-    <v-btn flat>
+    </router-link>
+    <router-link to="">
+    	<v-btn flat>
       Category
     </v-btn>
-    <v-btn flat>
-     Login
-    </v-btn>
+    </router-link>
+    <router-link to="/login">
+    	<v-btn flat>
+        Login
+       </v-btn>
+    </router-link>
+    
+    
+    
     
 
     
