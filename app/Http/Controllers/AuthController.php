@@ -16,7 +16,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('JWT', ['except' => ['login']]);
+        $this->middleware('JWT', ['except' => ['login','signup']]);
     }
 
     /**
@@ -84,8 +84,14 @@ class AuthController extends Controller
         ]);
     }
 
-    public function singup(Request $request)
+    public function signup(Request $request)
     {
+         $this->validate($request, [
+        'name' => 'required',
+        'email' => 'required',
+        'password'=> 'required|confirmed',
+    ]);
+
 
     	User::create($request->all());
     	return $this->login($request);
