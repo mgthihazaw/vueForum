@@ -1,8 +1,8 @@
 <template>
-	<v-toolbar dark color="primary">
+	<v-toolbar dark color="#395177" >
     
 
-    <v-toolbar-title class="white--text">Microstack</v-toolbar-title>
+    <v-toolbar-title class="success--text">Microstack</v-toolbar-title>
 
     <v-spacer></v-spacer>
     <router-link 
@@ -11,7 +11,7 @@
      :to="item.to"
      v-if="item.show"
     >
-    	<v-btn flat>
+    	<v-btn flat color="white">
       {{item.title}}
     </v-btn>
     </router-link>
@@ -31,7 +31,7 @@
         items: [
            {'title' : 'Forum', to:'/forum', show :true},
            
-           {'title' : 'Ask Question', to:'/askquestion',show :User.loggedIn()},
+           {'title' : 'Ask Question', to:'/ask',show :User.loggedIn()},
            {'title': 'Category', to:'/category',show :User.loggedIn()},
            {'title' : 'Login', to:'/login', show :!User.loggedIn()},
            {'title' : 'Logout', to:'/logout',show :User.loggedIn()},
@@ -47,5 +47,7 @@
 </script>
 
 <style>
-
+ a{
+    text-decoration: none;
+}
 </style>

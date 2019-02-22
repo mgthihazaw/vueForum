@@ -12,21 +12,23 @@
       required
     ></v-text-field>
     
-
-   
-      <v-select
-         v-model="form.category_id"
+     <v-autocomplete
+        v-model="form.category_id"
           
           :items="categories"
           item-text="name"
           item-value="id"
           label="Category"
         
-        
+        color="white"
+      
        
-        autocomplete
-      ></v-select>
+       
+      ></v-autocomplete>
+   
+      
     
+     <markdown-editor v-model="form.body" ref="markdownEditor"></markdown-editor>
 
     
 
@@ -54,21 +56,25 @@
       form:{
         title:null,
         category_id:null,
+        body:null
       },
       categories:{},
+      errors:{},
    
     }
    
   },
   created(){
     axios.get('/api/category')
-    .then(res => this.categories=res.data.data)
+    .then(res => this.categories=res.data)
     .catch(error=>console.log(error.response.data))
 
   },
   methods:{
     create(){
-      
+      axios.post('/api/question',this.form)
+      .then(res => this.$router.push(res.data.path))
+      .catch( error =>this.errors=error.response.data.error)
     }
   },
   }
