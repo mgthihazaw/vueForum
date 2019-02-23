@@ -8,13 +8,16 @@
                  :data="question"
                  ></question>
 			</v-flex>
-			Sidebar
+      <v-flex xs4>
+			<app-sidebar></app-sidebar>
+    </v-flex>
 		</v-layout>
 	</v-container>
 </template>
 
 <script>
 	import question from './Question.vue';
+  import AppSidebar from './AppSidebar'
   export default {
   	data(){
   		return {
@@ -23,6 +26,7 @@
   	},
   	components:{
   		question,
+      AppSidebar
   	},
   	created(){
   		axios.get('/api/question')

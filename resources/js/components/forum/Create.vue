@@ -19,7 +19,7 @@
           item-text="name"
           item-value="id"
           label="Category"
-        
+        hide-actions
         color="white"
       
        
@@ -58,7 +58,7 @@
         category_id:null,
         body:null
       },
-      categories:{},
+      categories:[],
       errors:{},
    
     }

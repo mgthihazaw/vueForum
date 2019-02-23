@@ -16,7 +16,8 @@ class Question extends Model
          'body',
          'category_id',
          'user_id',
-    ];
+    ]; 
+    protected $with=['replies'];
     public function getRouteKeyName()
     {
        return 'slug';

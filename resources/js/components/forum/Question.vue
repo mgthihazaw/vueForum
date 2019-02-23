@@ -1,6 +1,6 @@
 <template>
 	<div>
-      <v-card color="#EFEDF7">
+      <v-card color="#EFEDF7" class="mt-2">
         
     
        <v-card-title primary-title>
@@ -22,8 +22,8 @@
      
        </v-card-title>
 
-       <v-card-text>
-          {{ data.body }}
+       <v-card-text v-html="body">
+          
        </v-card-text>
       </v-card>
 
@@ -36,7 +36,13 @@
   export default {
   	props:[
         'data'
-  	]
+  	],
+    computed:{
+      body(){
+       return md.parse(this.data.body)
+
+      }
+    },
   }
 </script>
 
