@@ -6,15 +6,15 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
-## How to use
-Clone the repository with git clone
-Copy .env.example file to .env and edit database credentials there
-Run composer install
-Run php artisan key:generate
-Run php artisan migrate
-Run npm install
-Run npm run dev
-That's it - load the homepage, use Register link and use the CRUD
+ How to use<br>
+Clone the repository with git clone<br>
+Copy .env.example file to .env and edit database credentials there<br>
+Run composer install<br>
+Run php artisan key:generate<br>
+Run php artisan migrate<br>
+Run npm install<br>
+Run npm run dev<br>
+That's it - load the homepage, use Register link and use the CRUD<br>
 
 
 ## About Laravel

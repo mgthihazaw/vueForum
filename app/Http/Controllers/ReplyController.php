@@ -7,6 +7,7 @@ use App\Model\Question;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\ReplyResource;
+use Illuminate\Support\Facades\Auth;
 
 
 class ReplyController extends Controller
@@ -43,6 +44,7 @@ class ReplyController extends Controller
      */
     public function store(Question $question,Request $request)
     {
+        $request['user_id']=Auth::user()->id;
        $reply= $question->replies()->create($request->all());
         return response(['reply'=>new ReplyResource($reply)],Response::HTTP_CREATED);
     }
