@@ -4,20 +4,44 @@
       <v-btn icon slot="activator">
 		<v-icon :color="color">add_alert</v-icon>{{unreadCount}}
 	</v-btn>
-      <v-list >
+      <v-list 
+             style="max-height: 300px"
+             class="scroll-y">
         <v-list-tile
+        v-if="unread" 
         v-for="item in unread"
         :key="item.id"
-        
+       
         >
         <router-link :to="item.path">
-        	<v-list-tile-title @click="readIt(item)">
-          {{ item.question }} replied {{item.replyBy}}
+        	<v-list-tile-title @click="readIt(item)"  class="red--text">
+          {{ item.question }} replied by {{item.replyBy}}
+
+          </v-list-tile-title>
+
+          
+        </router-link>
+          
+        </v-list-tile>
+
+
+        <v-list-tile
+          v-if="read"
+        v-for="item in read"
+        :key="item.id"
+       
+        >
+        <router-link :to="item.path">
+        	<v-list-tile-title >
+          {{ item.question }} replied by {{item.replyBy}}
+
           </v-list-tile-title>
         </router-link>
           
         </v-list-tile>
+
       </v-list>
+      
     </v-menu>
   </div>
 	
@@ -38,6 +62,11 @@
 				this.getNotifications()
 				
 			}
+			Echo.private('App.User.' + User.id())
+			    .notification((notification) => {
+			        this.unread.unshift(notification)
+			        this.unreadCount++
+			    });
 		},
 		methods : {
 			getNotifications(){
@@ -47,7 +76,6 @@
 					this.read=res.data.read;
 					this.unread=res.data.unread;
 					this.unreadCount=res.data.unread.length;
-					console.log(res.data.unread)
 					
 					
 				})
