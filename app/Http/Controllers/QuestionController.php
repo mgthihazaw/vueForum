@@ -6,7 +6,7 @@ use App\Model\Question;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Http\Resources\QuestionResource;
-
+use App\Http\Requests\QuestionRequest;
 class QuestionController extends Controller
 {
 
@@ -41,7 +41,7 @@ class QuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(QuestionRequest $request)
     {
         $request['slug']=str_slug($request->title);
         $question=auth()->user()->question()->create($request->all());
@@ -79,7 +79,7 @@ class QuestionController extends Controller
      * @param  \App\Model\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Question $question)
+    public function update(QuestionRequest $request, Question $question)
     {
         $question->update($request->all());
         return response('Updated',Response::HTTP_ACCEPTED);

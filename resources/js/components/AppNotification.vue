@@ -56,7 +56,7 @@
 				read : {},
 				unread :{},
 				unreadCount : 0,
-				
+				sound :"http://soundbible.com/mp3/Crumbling-Mike_Koenig-1123041125.mp3",
 			}
 		},
 		created(){
@@ -66,6 +66,7 @@
 			}
 			Echo.private('App.User.' + User.id())
 			    .notification((notification) => {
+                    this.playSound()
 			        this.unread.unshift(notification)
 			        this.unreadCount++
 			    });
@@ -93,6 +94,11 @@
                           this.read.push(notification);
                           this.unreadCount--;
 				})
+			},
+			playSound(){
+				var audio=new Audio(this.sound);
+
+				audio.play();
 			}
 		},
 		computed:{

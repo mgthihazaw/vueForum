@@ -1,5 +1,8 @@
 <template>
 	<v-container>
+    <span class="red--text" v-if="errors.title">
+      {{errors.title[0]}}
+    </span>
    <v-form
   @submit.prevent="create"
   >
@@ -11,7 +14,9 @@
       type="text"
       required
     ></v-text-field>
-    
+   <span class="red--text" v-if="errors.category_id">
+      {{errors.category_id[0]}}
+    </span>
      <v-autocomplete
         v-model="form.category_id"
           
@@ -26,16 +31,18 @@
        
       ></v-autocomplete>
    
-      
+       <span class="red--text" v-if="errors.body">
+      {{errors.body[0]}}
+    </span>
     
      <markdown-editor v-model="form.body" ref="markdownEditor"></markdown-editor>
-
+    
     
 
     <v-btn
       type="submit"
       color="success"
-      
+      :disabled="disabled"
     >
      Create
     </v-btn>
@@ -67,16 +74,22 @@
   created(){
     axios.get('/api/category')
     .then(res => this.categories=res.data)
-    .catch(error=>console.log(error.response.data))
+    // .catch(error=>console.log(error.response.data.errors))
+
 
   },
   methods:{
     create(){
       axios.post('/api/question',this.form)
       .then(res => this.$router.push(res.data.path))
-      .catch( error =>this.errors=error.response.data.error)
+      .catch( error =>this.errors=error.response.data.errors)
     }
   },
+  computed:{
+    disabled(){
+      return !( this.form.title&& this.form.body&& this.form.category_id);
+    }
+  }
   }
 </script>
 

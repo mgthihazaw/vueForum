@@ -11,8 +11,10 @@ import Logout from '../components/login/Logout.vue';
 import Read from '../components/forum/Read.vue';
 import Create from '../components/forum/Create.vue';
 import CreateCategory from '../components/category/CreateCategory.vue';
+import Parallex from '../components/Parallex';
 
 const routes = [
+  {path : '/' ,component :Parallex},
   { path: '/login', component: Login },
   { path: '/signup', component: Signup },
   { path: '/forum', component: Forum ,name :'forum'},

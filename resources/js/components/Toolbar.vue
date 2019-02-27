@@ -2,7 +2,9 @@
 	<v-toolbar dark color="#395177" >
     
 
-    <v-toolbar-title class="success--text">Microstack</v-toolbar-title>
+    <v-toolbar-title class="success--text">
+   <router-link to="/">Microstack</router-link>
+    </v-toolbar-title>
 
     <v-spacer></v-spacer>
     <app-notification v-if="loggedIn"></app-notification>

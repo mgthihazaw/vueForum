@@ -1,10 +1,10 @@
 <template>
   <v-container>
-	<v-card>
+	<v-card >
     <v-container fluid> 
 
     
-   <v-card-title>
+   <v-card-title >
     <div>
      <div class="headline">
        {{data.title}}

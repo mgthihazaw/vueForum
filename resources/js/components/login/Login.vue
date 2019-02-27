@@ -1,46 +1,76 @@
 <template>
-  <div class="container">
-  <v-form
-  @submit.prevent="login"
+  
+
+   <v-parallax
+    dark
+    src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
+    height="780"
   >
-    
-
-    <v-text-field
-      label="E-mail"
-      v-model="form.email"
-      type="email"
-      required
-    ></v-text-field>
-
-    <v-text-field
-      label="Password"
-      v-model="form.password"
-      type="password"
-      required
-    ></v-text-field>
-
-    
-
-    <v-btn
-      type="submit"
-      color="success"
+    <v-container class="container animated zoomInDown ">
+    <v-layout row class="justify-center " style="position: relative;top: 10%;"
+      xs6>
       
-    >
-      Login
-    </v-btn>
+      <v-flex xs7 class="grey lighten-4">
+        <v-container style="position: relative;top: 5%;" class="text-xs-center">
+          <v-card flat>
+            <v-card-title primary-title class="text-xs-center">
+              <h3 >LOGIN</h3>
+            </v-card-title>
+            <v-divider></v-divider>
+              <v-form
+              @submit.prevent="login"
+              
+              >  
+                <v-text-field
+                prepend-icon="person"
+                  label="E-mail"
+                  v-model="form.email"
+                  type="email"
+                  required
 
-    <router-link to="/signup">
-      <v-btn 
-        color="primary"
-       >
-        Signup
-       </v-btn>
-    </router-link>
+                ></v-text-field>
 
-    
-  </v-form>
-  </div>
+                <v-text-field
+                prepend-icon="lock"
+                  label="Password"
+                  v-model="form.password"
+                  type="password"
+                  required
+                ></v-text-field>
+
+                
+               
+                <v-btn
+                  type="submit"
+                  color="success"
+                   large block
+                >
+                  Login
+                </v-btn>
+                
+                <router-link to="/signup">
+                  <v-btn 
+                    color="primary"
+                    large block
+                   >
+                    Signup
+                   </v-btn>
+                </router-link>
+              
+
+                
+              </v-form>
+          </v-card>
+        </v-container>
+      </v-flex>
+    </v-layout>
+  </v-container>
+</div>
+</v-parallax>
+  
 </template>
+
+
 
 <script>
 	
