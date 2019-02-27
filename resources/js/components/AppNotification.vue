@@ -11,8 +11,9 @@
         v-if="unread" 
         v-for="item in unread"
         :key="item.id"
-       
+        
         >
+        <div :v-if="item.id">
         <router-link :to="item.path">
         	<v-list-tile-title @click="readIt(item)"  class="red--text">
           {{ item.question }} replied by {{item.replyBy}}
@@ -21,6 +22,7 @@
 
           
         </router-link>
+        </div>
           
         </v-list-tile>
 
@@ -67,6 +69,7 @@
 			        this.unread.unshift(notification)
 			        this.unreadCount++
 			    });
+			    
 		},
 		methods : {
 			getNotifications(){
@@ -78,6 +81,9 @@
 					this.unreadCount=res.data.unread.length;
 					
 					
+				})
+				.catch(error =>{
+					Exception.handle(error)
 				})
 			},
 			readIt(notification){

@@ -23,7 +23,8 @@ window.md=md
 /**************Vuetify***************************/
 
 
-
+import Exception from './Helpers/Exception'
+window.Exception=Exception
 
 import User from './Helpers/User'
 window.User=User

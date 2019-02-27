@@ -13,7 +13,14 @@
   ></show-question> 
   <v-container>
     <replies :question="question"></replies>
-  <new-reply :questionSlug="question.slug"></new-reply>
+    <new-reply v-if="loggedIn" :questionSlug="question.slug"></new-reply>
+  
+    <router-link v-else to="/login" class="container mt-3">
+      <v-btn color="warning">
+        Login to Reply
+      </v-btn>
+    </router-link>
+  
   </v-container>
  
   </div>
@@ -35,6 +42,11 @@
       return {
         question:null,
         editing: false
+      }
+    },
+    computed:{
+      loggedIn(){
+        return User.loggedIn();
       }
     },
   	created(){
