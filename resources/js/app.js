@@ -21,7 +21,7 @@ Vue.use(VueSimplemde)
 import md from 'marked';
 window.md=md
 /**************Vuetify***************************/
-
+Vue.component('pagination', require('laravel-vue-pagination'));
 
 import Exception from './Helpers/Exception'
 window.Exception=Exception

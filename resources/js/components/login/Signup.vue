@@ -58,6 +58,7 @@
                   type="submit"
                   color="success"
                   large block
+                  :disabled="disabled"
                 >
                   SingUp
                 </v-btn>
@@ -111,6 +112,11 @@
            )
          .catch(error => {this.errors=error.response.data.errors})
         }
+    },
+    computed:{
+      disabled(){
+        return !(this.form.name && this.form.email && this.form.password && this.form.password_confirmation)
+      }
     }
   
   }

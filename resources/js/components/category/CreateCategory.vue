@@ -43,7 +43,7 @@
 	        			</v-list-tile-title>
 	        		</v-list-tile-content>
 	        		<v-list-tile-action>
-	        			<v-btn icon small @click="edit(index)">
+	        			<v-btn icon small  @click="edit(index)">
 	        				<v-icon color="orange">edit</v-icon>
 	        			</v-btn>
 	        		</v-list-tile-action>
@@ -109,7 +109,7 @@ export default{
 			edit(index){
 				this.form.name=this.categories[index].name;
 				 this.editSlug=this.categories[index].slug;
-				 this.categories.splice(index,1)
+				
 				
 			}
 		},

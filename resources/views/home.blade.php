@@ -6,6 +6,10 @@
 	<title></title>
 	<link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
 	<link href = "https://cdn.jsdelivr.net/npm/animate.css@3.5.1" rel = "stylesheet" type = "text/css">
+
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  
 </head>
 <body>
 	<div id="app">

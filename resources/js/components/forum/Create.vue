@@ -76,6 +76,9 @@
     .then(res => this.categories=res.data)
     // .catch(error=>console.log(error.response.data.errors))
 
+    if(!User.loggedIn()){
+           this.$router.push('/forum')
+    }
 
   },
   methods:{

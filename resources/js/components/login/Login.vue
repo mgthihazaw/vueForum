@@ -1,6 +1,6 @@
 <template>
   
-
+ 
    <v-parallax
     dark
     src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
@@ -17,19 +17,21 @@
               <h3 >LOGIN</h3>
             </v-card-title>
             <v-divider></v-divider>
+            
               <v-form
               @submit.prevent="login"
               
               >  
+              
                 <v-text-field
-                prepend-icon="person"
+                  prepend-icon="person"
                   label="E-mail"
                   v-model="form.email"
                   type="email"
                   required
 
                 ></v-text-field>
-
+               
                 <v-text-field
                 prepend-icon="lock"
                   label="Password"
@@ -44,6 +46,7 @@
                   type="submit"
                   color="success"
                    large block
+                   :disabled="disabled"
                 >
                   Login
                 </v-btn>
@@ -60,6 +63,7 @@
 
                 
               </v-form>
+
           </v-card>
         </v-container>
       </v-flex>
@@ -67,6 +71,7 @@
   </v-container>
 </div>
 </v-parallax>
+
   
 </template>
 
@@ -93,6 +98,11 @@
          User.login(this.form);
          // this.$router.push({name : 'forum'});
         }
+    },
+    computed:{
+      disabled(){
+        return !(this.form.email && this.form.password)
+      }
     }
   
   }
